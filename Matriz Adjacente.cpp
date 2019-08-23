@@ -1,4 +1,4 @@
-//Montar uma matriz de um grafo
+//Montar uma matriz adjacente de um grafo
 #include <iostream>
 #include <locale.h>
 using namespace std;
@@ -11,9 +11,9 @@ int menu()
 	{
 		system("cls");
 		cout<<"----------------------------------------------"<<endl;
-		cout<<"Escolha uma opção:"<<endl;
+		cout<<"Escolha uma opÃ§Ã£o:"<<endl;
 		cout<<"----------------------------------------------"<<endl;
-		cout<<" [1] Informar a posição da aresta.            "<<endl;
+		cout<<" [1] Informar a posiÃ§Ã£o da aresta.            "<<endl;
 		cout<<" [2] Exibir a matriz de adjacencia.           "<<endl;
 		cout<<" [0] Encerrar o programa.                     "<<endl;
 		cout<<"----------------------------------------------"<<endl;
@@ -27,17 +27,17 @@ int menu()
 int main ()
 {
 	setlocale(LC_ALL,"Portuguese");
-//Declaração de variaveis
+//DeclaraÃ§Ã£o de variaveis
 	int indice_coluna = 65,indice_linha = 65;//Letra inicial A
 	int vertice,escolha,linha,coluna;
 	
 //Receber quantidade vertices
 	cout<<"Informe a quantidade de vertices:";
 	cin>>vertice;
-//Declaração da matriz
+//DeclaraÃ§Ã£o da matriz
 	int grafo[vertice][vertice]={};
 //Inicializando a matriz com 0
-	cout<<endl<<"Sua Matriz adjacente terá a seguinte forma:"<<endl<<endl;
+	cout<<endl<<"Sua Matriz adjacente terÃ¡ a seguinte forma:"<<endl<<endl;
 	for(int i=-1 ; i < vertice ; i++)
 	{
 		if(i >=0)
@@ -67,14 +67,14 @@ int main ()
 	cout<<endl<<endl;
 	system("pause");
 	system("cls");
-//Inicialização do menu	
+//InicializaÃ§Ã£o do menu	
 	escolha=menu();
 	while (escolha != 0)
 	{
 		switch (escolha)
 		{
 		
-			// [1] Informar a posição da aresta.
+			// [1] Informar a posiÃ§Ã£o da aresta.
 			case 1:
 				system("cls");
 				cout<<"Informe a Linha do vertice:";
@@ -87,12 +87,12 @@ int main ()
 				{			
 					system("cls");
 					grafo[linha][coluna] =1;
-					cout<<endl<<"Foi alterada a posição "<<linha+1<<" X "<<coluna+1<<endl<<endl;
+					cout<<endl<<"Foi alterada a posiÃ§Ã£o "<<linha+1<<" X "<<coluna+1<<endl<<endl;
 				}
 				else
 				{
 					system("cls");
-					cout<<endl<<"A posição informada é invalida!!!"<<endl<<endl;
+					cout<<endl<<"A posiÃ§Ã£o informada Ã© invalida!!!"<<endl<<endl;
 				}
 				system("pause");
 				break;
