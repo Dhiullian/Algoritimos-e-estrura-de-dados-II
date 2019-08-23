@@ -127,7 +127,7 @@ int main ()
 					}
 					cout<<endl;
 				}
-	cout<<endl<<endl;
+				cout<<endl<<endl;
 				system("pause");
 				break;
 		}
