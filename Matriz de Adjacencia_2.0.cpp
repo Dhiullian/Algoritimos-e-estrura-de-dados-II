@@ -1,7 +1,12 @@
-//Montar uma matriz de um grafo
+/*
+	FAP-Betim
+	Disciplica:	Algoritimo e estutura de dados avan√ßados.
+	Exercicio:	Matriz de adjacencia.
+	Autor:      Dhiullian Brando de Oliveira Santos.
+*/
 #include <iostream>
 #include <locale.h>
-#include <ctype.h>//Biblioteca para convers„o de caracteres minusculos/maiusculo
+#include <ctype.h>//Biblioteca para convers√£o de caracteres minusculos/maiusculo
 using namespace std;
 
 int menu()
@@ -12,11 +17,11 @@ int menu()
 	{
 		system("cls");
 		cout<<"------------------------------------------------------"<<endl;
-		cout<<"Escolha uma opÁ„o:"<<endl;
+		cout<<"Escolha uma op√ß√£o:"<<endl;
 		cout<<"------------------------------------------------------"<<endl;
-		cout<<" [1] Informar a posiÁ„o da aresta.                    "<<endl;
+		cout<<" [1] Informar a posi√ß√£o da aresta.                    "<<endl;
 		cout<<" [2] Exibir a matriz de adjacencia e relacionamentos. "<<endl;
-		cout<<" [3] Remover relaÁ„o do grafo.                        "<<endl;
+		cout<<" [3] Remover rela√ß√£o do grafo.                        "<<endl;
 		cout<<" [0] Encerrar o programa.                             "<<endl;
 		cout<<"------------------------------------------------------"<<endl;
 		cout<<"escolha:";
@@ -29,17 +34,17 @@ int menu()
 int main ()
 {
 	setlocale(LC_ALL,"Portuguese");
-//DeclaraÁ„o de variaveis
+//Declara√ß√£o de variaveis
 	int indice_coluna = 65,indice_linha = 65;//Letra inicial A
 	int vertice,escolha,linha,coluna;
 	
 //Receber quantidade vertices
 	cout<<"Informe a quantidade de vertices:";
 	cin>>vertice;
-//DeclaraÁ„o da matriz
+//Declara√ß√£o da matriz
 	int grafo[vertice][vertice]={};
 //Inicializando a matriz preenchida com 0
-	cout<<endl<<"Sua Matriz adjacente ter· a seguinte forma:"<<endl<<endl;
+	cout<<endl<<"Sua Matriz adjacente ter√° a seguinte forma:"<<endl<<endl;
 	for(int i=-1 ; i < vertice ; i++)
 	{
 		if(i >=0)
@@ -69,14 +74,14 @@ int main ()
 	cout<<endl<<endl;
 	system("pause");
 	system("cls");
-//InicializaÁ„o do menu	
+//Inicializa√ß√£o do menu	
 	escolha=menu();
 	while (escolha != 0)
 	{
 		switch (escolha)
 		{
 		
-			// [1] Informar a posiÁ„o da aresta.
+			// [1] Informar a posi√ß√£o da aresta.
 			case 1:
 				system("cls");
 				cout<<"Informe a Linha do vertice:";
@@ -89,12 +94,12 @@ int main ()
 				{			
 					system("cls");
 					grafo[linha][coluna] =1;
-					cout<<endl<<"Foi alterada a posiÁ„o "<<linha+1<<" X "<<coluna+1<<endl<<endl;
+					cout<<endl<<"Foi alterada a posi√ß√£o "<<linha+1<<" X "<<coluna+1<<endl<<endl;
 				}
 				else
 				{
 					system("cls");
-					cout<<endl<<"A posiÁ„o informada È invalida!!!"<<endl<<endl;
+					cout<<endl<<"A posi√ß√£o informada √© invalida!!!"<<endl<<endl;
 				}
 				system("pause");
 				break;
@@ -129,7 +134,7 @@ int main ()
 					}
 					cout<<endl;
 				}			
-				cout<<endl<<"RelaÁ„o de orientaÁ„o do grafo:"<<endl<<endl;
+				cout<<endl<<"Rela√ß√£o de orienta√ß√£o do grafo:"<<endl<<endl;
 				for (int i=0; i < vertice; i++)
 				{
 					indice_linha = 65;
@@ -178,10 +183,10 @@ int main ()
 					}
 					cout<<endl;
 				}			
-				cout<<endl<<endl<<"Informe de qual linha vocÍ deseja remover um relacionamento:";
+				cout<<endl<<endl<<"Informe de qual linha voc√™ deseja remover um relacionamento:";
 				cin>>l_linha;
 				system("cls");
-				cout<<"RelaÁıes do vertice "<<(char)toupper(l_linha)<<":"<<endl<<endl;
+				cout<<"Rela√ß√µes do vertice "<<(char)toupper(l_linha)<<":"<<endl<<endl;
 				for (int i=0; i < vertice; i++)
 				{
 					indice_linha = 65;
@@ -197,8 +202,8 @@ int main ()
 					}
 				}
 				
-				//Encontrar o erro para exibir caso a letra informada n„o tenha um relacionamento
-				cout<<endl<<"Com qual vertice ser· o relacionamento removido:";
+				//Encontrar o erro para exibir caso a letra informada n√£o tenha um relacionamento
+				cout<<endl<<"Com qual vertice ser√° o relacionamento removido:";
 				cin>>l_coluna;
 				int validacao=0;;
 				for( int i=0 ;i < vertice; i++)
@@ -225,7 +230,7 @@ int main ()
 					cout<<endl<<"O relacionamento ["<<(char)toupper(l_linha)<<"]-->["<<(char)toupper(l_coluna)<<"] foi removido com sucesso!"<<endl<<endl;
 				}			
 				else
-					cout<<endl<<"N„o existe um relacionamento entre os vertices informados!"<<endl<<endl;
+					cout<<endl<<"N√£o existe um relacionamento entre os vertices informados!"<<endl<<endl;
 				system("pause");
 				break;				
 		}
