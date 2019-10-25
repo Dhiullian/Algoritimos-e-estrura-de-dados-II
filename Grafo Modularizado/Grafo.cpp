@@ -1,3 +1,9 @@
+/*
+	FAP-Betim
+	Disciplica:	Algoritimo e estutura de dados avanÃ§ados.
+	Exercicio:	Grafo Modularizado com algoritmo de djkstra.
+	Autor:      Dhiullian Brando de Oliveira Santos.
+*/
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,7 +13,7 @@
 #include <ctype.h>
 using namespace std;
 
-// Estrutura de armazenamento das cidade que irão compor o grafo.
+// Estrutura de armazenamento das cidade que irÃ£o compor o grafo.
 struct Cidade
 {
 	char nome[15];
@@ -24,7 +30,7 @@ int main()
 	int eh_digrafo = 1,escolha = 0,num_vertice, grau_max, eh_ponderado = 1;
 
 	
-	// Loop de inicialização do grafo com quantidade de vertice e número maximo de arestas.
+	// Loop de inicializaÃ§Ã£o do grafo com quantidade de vertice e nÃºmero maximo de arestas.
 	while(escolha == 0)
 	{
 		system("cls");
@@ -37,22 +43,22 @@ int main()
 		cout<<"                                  ";
 		cin>>grau_max;
 		cout<<"========================================================================="<<endl<<endl;
-		cout<<"       Seu Grafo será composto por "<<num_vertice<<" vertices com grau máximo de "<<grau_max<<"."<<endl<<endl;
+		cout<<"       Seu Grafo serÃ¡ composto por "<<num_vertice<<" vertices com grau mÃ¡ximo de "<<grau_max<<"."<<endl<<endl;
 		cout<<"========================================================================="<<endl<<endl;
-		cout<<"Precione [1] para confirmar as informações ou [0] para alterar os dados:"<<endl<<"->";
+		cout<<"Precione [1] para confirmar as informaÃ§Ãµes ou [0] para alterar os dados:"<<endl<<"->";
 		cin>>escolha;
 		
-		// Condição para invalidar opções diferentes das pré estabelecidas.
+		// CondiÃ§Ã£o para invalidar opÃ§Ãµes diferentes das prÃ© estabelecidas.
 		while(escolha >1 || escolha < 0)
 		{
 			system("cls");
-			cout<<endl<<"[ERRO] A opção escolhida é invalida !"<<endl<<endl;
+			cout<<endl<<"[ERRO] A opÃ§Ã£o escolhida Ã© invalida !"<<endl<<endl;
 			system("pause");
 			system("cls");
 			cout<<"========================================================================="<<endl<<endl;
-			cout<<"       Seu Grafo será composto por "<<num_vertice<<" vertices com grau máximo de "<<grau_max<<"."<<endl<<endl;
+			cout<<"       Seu Grafo serÃ¡ composto por "<<num_vertice<<" vertices com grau mÃ¡ximo de "<<grau_max<<"."<<endl<<endl;
 			cout<<"========================================================================="<<endl<<endl;
-			cout<<"Precione [1] para confirmar as informações ou [0] para alterar os dados:"<<endl<<"->";	
+			cout<<"Precione [1] para confirmar as informaÃ§Ãµes ou [0] para alterar os dados:"<<endl<<"->";	
 			cin>>escolha;		
 		}
 	}
@@ -60,18 +66,18 @@ int main()
 	// Vetor para armazenar os nomes das cidades utilizadas no grafo.
 	Cidade city[num_vertice];
 	
-	// Inicialização do grafo.
+	// InicializaÃ§Ã£o do grafo.
 	Grafo *gr = Cria_Grafo (num_vertice, grau_max, eh_ponderado);
 	
-	// Laço para inserção das  cidades no grafo.
+	// LaÃ§o para inserÃ§Ã£o das  cidades no grafo.
 	for (int i = 0; i < num_vertice; i++)
 	{
-		cout<<"Informe a nome da "<<i+1<<"º cidade:";
+		cout<<"Informe a nome da "<<i+1<<"Âº cidade:";
 		fflush(stdin);
 		gets(city[i].nome);
 	}
 	
-	// Inserção para facilitar o teste do programa.
+	// InserÃ§Ã£o para facilitar o teste do programa.
 	/*Inserir_Aresta(gr, 0, 1, eh_digrafo, 1);
 	Inserir_Aresta(gr, 1, 3, eh_digrafo, 1);
 	Inserir_Aresta(gr, 1, 2, eh_digrafo, 1);
@@ -80,16 +86,16 @@ int main()
 	Inserir_Aresta(gr, 3, 4, eh_digrafo, 1);
 	Inserir_Aresta(gr, 4, 1, eh_digrafo, 1);*/
 	
-	// Inicialização do menú do programa.
+	// InicializaÃ§Ã£o do menÃº do programa.
 	escolha = menu();
 	while (escolha != 0)
 	{
 		switch (escolha)
 		{
-			// Inserção de uma nova aresta no grafo.
+			// InserÃ§Ã£o de uma nova aresta no grafo.
 			case 1:
 			{
-				// vet_cidade[grau_max*2]  recebe os valores da função imprime grafo e armazena para a exibição dos nomes das cidades.
+				// vet_cidade[grau_max*2]  recebe os valores da funÃ§Ã£o imprime grafo e armazena para a exibiÃ§Ã£o dos nomes das cidades.
 				int City_origem,City_destino,vet_cidade[grau_max*2];
 				char N_maiusculo[15];
 				float City_distancia;
@@ -100,12 +106,12 @@ int main()
 				
 				system("cls");
 				cout<<"====================================="<<endl;
-				cout<<" RELAÇÃO DE CIDADES"<<endl;
+				cout<<" RELAÃ‡ÃƒO DE CIDADES"<<endl;
 				cout<<"====================================="<<endl;
 				cout<<" ID\t\t  CIDADE"<<endl;
 				cout<<"-------------------------------------"<<endl;
 				
-				// Exibição dos ID's das cidades para facilitar manipuação.
+				// ExibiÃ§Ã£o dos ID's das cidades para facilitar manipuaÃ§Ã£o.
 				for(int i = 0; i < num_vertice; i++)
 				{
 					cout<<" "<<i<<"\t\t  "<<city[i].nome<<endl;	
@@ -121,19 +127,19 @@ int main()
 					N_maiusculo[i] = (char)toupper(city[City_origem].nome[i]);
 				}
 					
-				//Função que passa as posições da cidade para o vet_cidade para que possa ser impresso posterior.
+				//FunÃ§Ã£o que passa as posiÃ§Ãµes da cidade para o vet_cidade para que possa ser impresso posterior.
 				Imprime_Grafo(gr,City_origem,vet_cidade);
 				
-				// comparação para caso não haja relacionamentos.
+				// comparaÃ§Ã£o para caso nÃ£o haja relacionamentos.
 				if(vet_cidade[0] != -1)
 				{			
 					cout<<endl<<"=====================================";
-					cout<<endl<<" DIREÇÕES PARTINDO DE "<<N_maiusculo<<endl;				
+					cout<<endl<<" DIREÃ‡Ã•ES PARTINDO DE "<<N_maiusculo<<endl;				
 					cout<<"====================================="<<endl;
 					cout<<" ORIGEM\t\t      DESTINO"<<endl;
 					cout<<"-------------------------------------";
 
-					// Exibe uma lista de relacionamentos do elemento origem já existentes para não se repetir relacionamentos.
+					// Exibe uma lista de relacionamentos do elemento origem jÃ¡ existentes para nÃ£o se repetir relacionamentos.
 			
 					for(int i = 0; i < grau_max * 2;i+=2)
 					{
@@ -153,22 +159,22 @@ int main()
 				
 				system("cls");
 				
-				// Exibição dos dados da nova aresta inserida.
-				cout<<"Foi inserido uma nova direção partindo de "<<city[City_origem].nome<<" com destino á "<<city[City_destino].nome;
+				// ExibiÃ§Ã£o dos dados da nova aresta inserida.
+				cout<<"Foi inserido uma nova direÃ§Ã£o partindo de "<<city[City_origem].nome<<" com destino Ã¡ "<<city[City_destino].nome;
 				cout<<" e este caminho possui uma distancia de "<<City_distancia<<"Km."<<endl<<endl;
 				
-				// Função de inserção de Aresta.
+				// FunÃ§Ã£o de inserÃ§Ã£o de Aresta.
 				Inserir_Aresta(gr, City_origem, City_destino, eh_digrafo,City_distancia);
 				
 				system("Pause");
 				break;				
 			}
 			
-			// Exibição de todos os relacionamentos do grafo.
+			// ExibiÃ§Ã£o de todos os relacionamentos do grafo.
 			case 2:			
 			{
-				/* vet_cidade[(grau_max*2)*num_vertice]  recebe os valores da função imprime_relacoes e armazena 
-				dados para a exibição de todos os relacionamentos presentes no grafo.*/
+				/* vet_cidade[(grau_max*2)*num_vertice]  recebe os valores da funÃ§Ã£o imprime_relacoes e armazena 
+				dados para a exibiÃ§Ã£o de todos os relacionamentos presentes no grafo.*/
 				int City_origem,City_destino,vet_cidade[(grau_max*2)*num_vertice];
 				
 				//Inicializando o vetor das cidades com -1
@@ -180,12 +186,12 @@ int main()
 				system("cls");
 				
 				cout<<"=====================================";
-				cout<<endl<<" LISTA DE RELAÇÕES ENTRE CIDADES "<<endl;				
+				cout<<endl<<" LISTA DE RELAÃ‡Ã•ES ENTRE CIDADES "<<endl;				
 				cout<<"====================================="<<endl;
 				cout<<" ORIGEM\t\t      DESTINO"<<endl;
 				cout<<"-------------------------------------";				
 					
-				// Exibe uma lista de todos relacionamentos já existentes no grafo.
+				// Exibe uma lista de todos relacionamentos jÃ¡ existentes no grafo.
 				for(int i = 0; i < (grau_max*2)*num_vertice;i+=2)
 				{
 					if(vet_cidade[i] == -1)
@@ -211,19 +217,19 @@ int main()
 				
 				system("cls");							
 				cout<<"====================================="<<endl;
-				cout<<" RELAÇÃO DE CIDADES"<<endl;
+				cout<<" RELAÃ‡ÃƒO DE CIDADES"<<endl;
 				cout<<"====================================="<<endl;
 				cout<<" ID\t\t  CIDADE"<<endl;
 				cout<<"-------------------------------------"<<endl;
 				
-				// Exibição dos ID's das cidades para facilitar manipuação.
+				// ExibiÃ§Ã£o dos ID's das cidades para facilitar manipuaÃ§Ã£o.
 				for(int i = 0; i < num_vertice; i++)
 				{
 					cout<<" "<<i<<"\t\t  "<<city[i].nome<<endl;	
 				}
 				cout<<"====================================="<<endl;				
 	   			
-				cout<<"Informe o ID da cidade que terá uma aresta removida:";
+				cout<<"Informe o ID da cidade que terÃ¡ uma aresta removida:";
 				cin>>City_origem;
 				
 				// Converte o nome da cidade origem para MAIUSCULO(estetico).
@@ -232,18 +238,18 @@ int main()
 					N_maiusculo[i] = (char)toupper(city[City_origem].nome[i]);
 				}	
 				
-				//Função que passa as posições da cidade para o vet_cidade para que possa ser impresso posterior.
+				//FunÃ§Ã£o que passa as posiÃ§Ãµes da cidade para o vet_cidade para que possa ser impresso posterior.
 				Imprime_Grafo(gr,City_origem,vet_cidade);
 				
 				if(vet_cidade[0] != -1)
 				{				
 					cout<<endl<<"=====================================";
-					cout<<endl<<" DIREÇÕES PARTINDO DE "<<N_maiusculo<<endl;				
+					cout<<endl<<" DIREÃ‡Ã•ES PARTINDO DE "<<N_maiusculo<<endl;				
 					cout<<"====================================="<<endl;
 					cout<<" ORIGEM\t\t      DESTINO"<<endl;
 					cout<<"-------------------------------------";
 					
-					// Exibe uma lista de relacionamentos do elemento origem já existentes.
+					// Exibe uma lista de relacionamentos do elemento origem jÃ¡ existentes.
 					for(int i = 0; i < grau_max * 2;i+=2)
 					{
 						if(vet_cidade[i] == -1)
@@ -257,7 +263,7 @@ int main()
 				else
 				{
 					system("cls");
-					cout<<"Não existe nenhuma relação partindo da cidade "<<N_maiusculo<<endl<<endl;
+					cout<<"NÃ£o existe nenhuma relaÃ§Ã£o partindo da cidade "<<N_maiusculo<<endl<<endl;
 					system("pause");
 					break;	
 				}	
@@ -286,12 +292,12 @@ int main()
 				
 				system("cls");
 				cout<<"====================================="<<endl;
-				cout<<" RELAÇÃO DE CIDADES"<<endl;
+				cout<<" RELAÃ‡ÃƒO DE CIDADES"<<endl;
 				cout<<"====================================="<<endl;
 				cout<<" ID\t\t  CIDADE"<<endl;
 				cout<<"-------------------------------------"<<endl;
 				
-				// Exibição dos ID's das cidades para facilitar manipuação.
+				// ExibiÃ§Ã£o dos ID's das cidades para facilitar manipuaÃ§Ã£o.
 				for(int i = 0; i < num_vertice; i++)
 				{
 					cout<<" "<<i<<"\t\t  "<<city[i].nome<<endl;	
