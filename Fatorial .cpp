@@ -1,4 +1,9 @@
-//Calcular fatorial Utilizando pilha dinamica encadeada
+/*
+	FAP-Betim
+	Disciplica:	Algoritimo e estutura de dados avan√ßados.
+	Exercicio:	Calcular fatorial Utilizando pilha dinamica encadeada
+	Autor:      Dhiullian Brando de Oliveira Santos.
+*/
 #include <iostream>
 #include <locale.h>
 #include <stdlib.h>
@@ -38,7 +43,7 @@ int Inserir_elemento(Pilha *plh,struct Store dado)
 	return 1;
 }
 
-//Limpar Pilha e Liberar memÛria
+//Limpar Pilha e Liberar mem√≥ria
 void Limpa_plh(Pilha *plh)
 {
 	if (plh != NULL)
@@ -61,7 +66,7 @@ void Imprimir_mult(Pilha *plh)
 	{
 		int Mult=1;
 		Elem *no = *plh;
-		cout<<"A pilha È composta pelos n˙meros:"<<endl<<endl;
+		cout<<"A pilha √© composta pelos n√∫meros:"<<endl<<endl;
 		while (no != NULL)
 		{
 			cout<<"["<<no->dado.num<<"]\t";
@@ -69,10 +74,10 @@ void Imprimir_mult(Pilha *plh)
 			no = no->prox;
 
 		}
-		cout<<endl<<endl<<"O fatorial do n˙mero informado È : "<<Mult<<endl<<endl;
+		cout<<endl<<endl<<"O fatorial do n√∫mero informado √© : "<<Mult<<endl<<endl;
 	}
 	else
-		cout<<"A pilha est· vazia!"<<endl<<endl;
+		cout<<"A pilha est√° vazia!"<<endl<<endl;
 }
 
 //Programa Principal
@@ -84,7 +89,7 @@ int menu()
 	{
 		system("cls");
 		cout<<"----------------------------------------------"<<endl;
-		cout<<"Escolha uma opÁ„o:"<<endl;
+		cout<<"Escolha uma op√ß√£o:"<<endl;
 		cout<<"----------------------------------------------"<<endl;
 		cout<<" [1] Inserir elemento.                        "<<endl;
 		cout<<" [2] Limpar a Pilha.                          "<<endl;
@@ -101,7 +106,7 @@ int main ()
 {
 	setlocale(LC_ALL,"Portuguese");
 	
-//DeclaraÁ„o de Variavel
+//Declara√ß√£o de Variavel
 	Pilha *plh;
 	Store dado;
 	int escolha;
@@ -119,10 +124,10 @@ int main ()
 			// [1] Inserir elemento.
 			case 1:	
 			system("cls");
-			cout<<"Informe o n˙mero para se calcular o fatorial: ";
+			cout<<"Informe o n√∫mero para se calcular o fatorial: ";
 			cin>>dado.num;
 			Inserir_elemento(plh,dado);
-			cout<<endl<<"Ser· calculado o fatorial do n˙mero "<<dado.num<<"."<<endl<<endl;
+			cout<<endl<<"Ser√° calculado o fatorial do n√∫mero "<<dado.num<<"."<<endl<<endl;
 			system("pause");
 			break;
 			
