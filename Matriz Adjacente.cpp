@@ -1,4 +1,9 @@
-//Montar uma matriz adjacente de um grafo
+/*
+	FAP-Betim
+	Disciplica:	Algoritimo e estutura de dados avançados.
+	Exercicio:	Matriz de adjacencia.
+	Autor:      Dhiullian Brando de Oliveira Santos.
+*/
 #include <iostream>
 #include <locale.h>
 using namespace std;
